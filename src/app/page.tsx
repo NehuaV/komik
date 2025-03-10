@@ -1,31 +1,129 @@
-import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">Just the basics - Everything you need to know to set up your database and authentication.</div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">Learn more about Create T3 App, the libraries it uses, and how to deploy it.</div>
-          </Link>
+    <div className="container mx-auto px-4">
+      {/* Header */}
+      <header className="navbar bg-base-100 border-base-200 border-b py-4">
+        <div className="navbar-start">
+          <div className="text-primary text-2xl font-bold">Komik</div>
         </div>
-      </div>
-    </main>
+        <div className="navbar-center hidden md:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <a className="text-primary font-medium">Originals</a>
+            </li>
+            <li>
+              <a className="font-medium">Canvas</a>
+            </li>
+            <li>
+              <a className="font-medium">Daily</a>
+            </li>
+            <li>
+              <a className="font-medium">Genres</a>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end flex items-center justify-center">
+          <button className="btn btn-ghost btn-circle" aria-label="Search">
+            <span className="flex items-center justify-center text-xl">🔍</span>
+          </button>
+          <button className="btn btn-ghost btn-circle" aria-label="Search">
+            <span className="flex items-center justify-center text-xl">👤</span>
+          </button>
+        </div>
+      </header>
+
+      {/* Featured Comic - carousel todo */}
+      <section className="hero relative mt-8 mb-8 h-96 rounded-xl shadow-lg">
+        <Image src={`https://placehold.co/1920x1080`} alt="Featured comic background" fill className="rounded-xl object-cover" priority />
+        <div className="hero-overlay absolute inset-0 rounded-xl bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div className="hero-content relative z-10 items-end justify-start pb-8 text-start text-white">
+          <div>
+            <p className="mb-2 text-sm uppercase">Featured Series</p>
+            <h1 className="mb-2 text-3xl font-bold">The Epic Adventure</h1>
+            <p className="mb-4">Follow the journey of heroes in this fantasy world!</p>
+            <button className="btn btn-primary">Read Now</button>
+          </div>
+        </div>
+      </section>
+
+      {/* Comic Grid */}
+      <section className="mb-10">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl font-bold">Popular This Week</h2>
+          <a href="#" className="link link-primary">
+            View All
+          </a>
+        </div>
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {[1, 2, 3, 4, 5, 6].map((item) => (
+            <div key={item} className="card bg-base-100 shadow-md transition-transform duration-200 hover:-translate-y-1">
+              <figure>
+                <Image
+                  src={`https://placehold.co/200x300`}
+                  alt={`Comic ${item}`}
+                  className="h-60 w-full object-cover"
+                  width={200}
+                  height={300}
+                />
+              </figure>
+              <div className="card-body p-3">
+                <h3 className="card-title text-base">Comic Title {item}</h3>
+                <p className="text-base-content/60 text-xs">Fantasy • Adventure</p>
+                <div className="text-base-content/60 flex gap-3 text-xs">
+                  <span>⭐ 9.8</span>
+                  <span>👁️ 1.2M</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Daily Updates Section */}
+      <section className="mb-10">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl font-bold">Daily Updates</h2>
+          <a href="#" className="link link-primary">
+            View Calendar
+          </a>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {[1, 2, 3].map((item) => (
+            <div key={item} className="card card-side bg-base-100 border-base-200 border p-3 transition hover:shadow-md">
+              <figure>
+                <Image
+                  src={`https://placehold.co/64x64`}
+                  alt={`Update ${item}`}
+                  className="h-16 w-16 rounded-md object-cover"
+                  width={64}
+                  height={64}
+                />
+              </figure>
+              <div className="card-body p-0 pl-4">
+                <h3 className="font-medium">Updated Today</h3>
+                <p className="text-base-content/60 text-sm">Episode {Math.floor(Math.random() * 100)}</p>
+                <div className="mt-1 flex text-xs">
+                  <span className="badge badge-primary badge-sm">New</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Genres Section */}
+      <section className="mb-10">
+        <h2 className="mb-4 text-xl font-bold">Browse by Genre</h2>
+        <div className="flex flex-wrap gap-2">
+          {["Romance", "Action", "Fantasy", "Comedy", "Drama", "Slice of Life", "Horror", "Thriller"].map((genre) => (
+            <a key={genre} href="#" className="badge badge-outline hover:badge-primary p-4 text-sm transition-colors">
+              {genre}
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

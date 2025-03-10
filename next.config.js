@@ -5,6 +5,19 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        pathname: "**",
+      },
+    ],
+    formats: ["image/avif", "image/webp"],
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  output: "standalone",
+};
 
 export default config;
