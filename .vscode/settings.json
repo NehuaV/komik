@@ -1,0 +1,9 @@
+{
+  "explorer.excludeGitIgnore": false,
+  "biome.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  }
+}
