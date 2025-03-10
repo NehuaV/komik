@@ -2,38 +2,7 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto px-4">
-      {/* Header */}
-      <header className="navbar bg-base-100 border-base-200 border-b py-4">
-        <div className="navbar-start">
-          <div className="text-primary text-2xl font-bold">Komik</div>
-        </div>
-        <div className="navbar-center hidden md:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a className="text-primary font-medium">Originals</a>
-            </li>
-            <li>
-              <a className="font-medium">Canvas</a>
-            </li>
-            <li>
-              <a className="font-medium">Daily</a>
-            </li>
-            <li>
-              <a className="font-medium">Genres</a>
-            </li>
-          </ul>
-        </div>
-        <div className="navbar-end flex items-center justify-center">
-          <button className="btn btn-ghost btn-circle" aria-label="Search">
-            <span className="flex items-center justify-center text-xl">🔍</span>
-          </button>
-          <button className="btn btn-ghost btn-circle" aria-label="Search">
-            <span className="flex items-center justify-center text-xl">👤</span>
-          </button>
-        </div>
-      </header>
-
+    <div>
       {/* Featured Comic - carousel todo */}
       <section className="hero relative mt-8 mb-8 h-96 rounded-xl shadow-lg">
         <Image src={`https://placehold.co/1920x1080`} alt="Featured comic background" fill className="rounded-xl object-cover" priority />
